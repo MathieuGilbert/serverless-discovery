@@ -1,0 +1,18 @@
+schema {
+	query: Query
+}
+
+type Query {
+  getPictures(query: String!): [Picture]
+}
+
+type Picture {
+  id: String
+  tags: String
+  previewURL: String
+  previewWidth: Int
+  previewHeight: Int
+  webformatURL: String
+  webformatWidth: Int
+  webformatHeight: Int
+}

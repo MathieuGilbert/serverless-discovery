@@ -1,0 +1,4 @@
+{
+  "pictureServiceEndpoint": "https://ENDPOINT_PATH/graphql",
+  "pictureServiceKey": ""
+}

@@ -1,5 +1,5 @@
 import * as fs from "fs";
-import * as path from 'path'
+import * as path from 'path';
 import * as cdk from '@aws-cdk/core';
 import * as iam from '@aws-cdk/aws-iam';
 import * as appsync from '@aws-cdk/aws-appsync';
@@ -7,7 +7,7 @@ import * as lambda from '@aws-cdk/aws-lambda';
 const moment = require("moment-timezone");
 
 const buildPackageLayer = (scope: cdk.Construct, id: string): lambda.LayerVersion => {
-  const sourcePath = path.resolve(__dirname, "../", "packageLayer");
+  const sourcePath = path.resolve(__dirname, "..", "packageLayer");
   const code = new lambda.AssetCode(sourcePath);
 
   return new lambda.LayerVersion(scope, `${id}-layer`, {

@@ -7,7 +7,9 @@ type Query {
 }
 
 type Picture {
-  id: String
+  id: Int
+  pageURL: String
+  type: String
   tags: String
   previewURL: String
   previewWidth: Int
@@ -15,4 +17,16 @@ type Picture {
   webformatURL: String
   webformatWidth: Int
   webformatHeight: Int
+  largeImageURL: String
+  imageWidth: Int
+  imageHeight: Int
+  imageSize: Int
+  views: Int
+  downloads: Int
+  favorites: Int
+  likes: Int
+  comments: Int
+  user_id: Int
+  user: String
+  userImageURL: String
 }

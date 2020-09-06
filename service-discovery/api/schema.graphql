@@ -1,0 +1,19 @@
+schema {
+  query: Query
+	mutation: Mutation
+}
+
+type Query {
+  get(name: String!, version: Int): Service
+}
+
+type Mutation {
+  register(name: String!, endpoint: String): Service
+  publish(name: String!, endpoint: String): Service
+}
+
+type Service {
+  name: String
+  version: Int
+  endpoint: String
+}

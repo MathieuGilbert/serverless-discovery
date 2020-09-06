@@ -11,6 +11,7 @@ export interface RegistratorProps {
 	parameterName: string;
 }
 
+// To be used by services.
 export class Registrator extends AwsCustomResource {
 	constructor(
 		scope: Construct,

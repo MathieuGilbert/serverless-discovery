@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "strict": true,
+    "baseUrl": "./",
+    "types": [
+      "node"
+    ],
+    "esModuleInterop": true,
+    "inlineSourceMap": true
+  }
+}

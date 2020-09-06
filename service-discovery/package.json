@@ -5,26 +5,34 @@
     "service-discovery": "bin/service-discovery.js"
   },
   "scripts": {
-    "predeploy": "npm i",
-    "deploy": "cdk deploy",
+    "predeploy": "npm i && concurrently \"npm run i:*\"",
+    "deploy": "cdk deploy --require-approval=never",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "i:get": "cd api/get && tsc",
+    "i:publish": "cd api/publish && tsc",
+    "i:register": "cd api/register && tsc"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.54.0",
+    "@aws-cdk/assert": "1.61.1",
     "@types/jest": "^25.2.1",
     "@types/node": "10.17.5",
     "jest": "^25.5.0",
     "ts-jest": "^25.3.1",
-    "aws-cdk": "1.54.0",
+    "aws-cdk": "1.61.1",
     "ts-node": "^8.1.0",
     "typescript": "~3.7.2"
   },
   "dependencies": {
-    "@aws-cdk/core": "1.54.0",
-    "@aws-cdk/custom-resources": "1.54.0",
+    "@aws-cdk/aws-appsync": "1.61.1",
+    "@aws-cdk/core": "1.61.1",
+    "@aws-cdk/custom-resources": "1.61.1",
+    "@aws-cdk/aws-dynamodb": "1.61.1",
+    "@aws-cdk/aws-iam": "1.61.1",
+    "aws-sdk": "^2.715.0",
+    "moment-timezone": "^0.5.31",
     "source-map-support": "^0.5.16"
   }
 }

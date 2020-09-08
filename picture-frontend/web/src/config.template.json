@@ -1,0 +1,5 @@
+{
+  "pictureServiceKey": "picture-service-key",
+  "serviceRegistryEndpoint": "https://STATIC_ENDPOINT_PATH/graphql",
+  "serviceRegistryKey": "registry-key"
+}

@@ -5,13 +5,13 @@
     "picture-frontend": "bin/picture-frontend.js"
   },
   "scripts": {
-    "predeploy": "concurrently \"npm i\" \"npm run build-spa\"",
+    "predeploy": "concurrently \"npm i\" \"npm run build-web\"",
     "deploy": "cdk deploy",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
-    "build-spa": "cd ../spa && npm run build"
+    "build-web": "cd ../web && npm run build"
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.61.1",

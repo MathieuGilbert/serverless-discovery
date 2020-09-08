@@ -4,6 +4,7 @@ import * as cdk from '@aws-cdk/core';
 import * as s3 from '@aws-cdk/aws-s3';
 import * as s3deployment from '@aws-cdk/aws-s3-deployment';
 import * as cloudfront from '@aws-cdk/aws-cloudfront';
+import { CfnOutput } from "@aws-cdk/core";
 
 export class PictureFrontendStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -16,7 +17,7 @@ export class PictureFrontendStack extends cdk.Stack {
       removalPolicy: cdk.RemovalPolicy.RETAIN
     })
 
-    const sourcePath = path.resolve(__dirname, "..", "..", "spa", "build");
+    const sourcePath = path.resolve(__dirname, "..", "..", "web", "build");
     new s3deployment.BucketDeployment(this, `${id}-bucketdeployment`, {
       sources: [s3deployment.Source.asset(sourcePath)],
       destinationBucket: siteBucket
@@ -24,7 +25,7 @@ export class PictureFrontendStack extends cdk.Stack {
 
     const originAccessIdentity = new cloudfront.OriginAccessIdentity(this, `${id}-oai`);
 
-    new cloudfront.CloudFrontWebDistribution(this, `${id}-distribution`, {
+    const distribution = new cloudfront.CloudFrontWebDistribution(this, `${id}-distribution`, {
       originConfigs: [
         {
           s3OriginSource: {
@@ -34,6 +35,10 @@ export class PictureFrontendStack extends cdk.Stack {
           behaviors : [ {isDefaultBehavior: true}]
         }
       ]
+    })
+
+    new CfnOutput(this, 'FrontendDomain', {
+      value: distribution.distributionDomainName
     })
   }
 }

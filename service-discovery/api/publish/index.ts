@@ -1,8 +1,18 @@
-// import { publish } from './publish'
-// import { get } from '../get/get'
+import { publish } from './publish'
 
-// const tableName = process.env.TABLE_NAME!;
+const tableName = process.env.TABLE_NAME!;
 
-exports.handler = async (event: any) => {
+type Event = {
+  arguments: {
+    name: string,
+    endpoint: string
+  }
+}
+
+exports.handler = async (event: Event) => {
   console.log(event)
+
+  const { name, endpoint } = event.arguments
+
+  return publish(tableName, name, endpoint)
 }

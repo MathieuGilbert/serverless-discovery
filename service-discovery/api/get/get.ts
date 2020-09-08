@@ -6,8 +6,9 @@ const documentClient = new DynamoDB.DocumentClient();
 
 export const get = async (tableName: string, name: string, version?: string): Promise<Service> => {
   try {
-    if (version !== undefined) {
-      // get specified version
+    if (version?.length) {
+      console.log('getting version: ', version)
+
       const params: DynamoDB.GetItemInput = {
         TableName: tableName,
         Key: {
@@ -19,10 +20,14 @@ export const get = async (tableName: string, name: string, version?: string): Pr
 
       return service.Item as Service
     } else {
-      // get latest version
+      console.log('getting latest version')
+
       const params: DynamoDB.QueryInput = {
         TableName: tableName,
-        KeyConditionExpression: 'name = :name',
+        KeyConditionExpression: '#name = :name',
+        ExpressionAttributeNames: {
+          '#name': 'name'
+        },
         ExpressionAttributeValues: {
           ':name': name as DynamoDB.AttributeValue
         },

@@ -1,7 +1,19 @@
-// import { register } from './register'
+import { register } from './register'
+import { table } from 'console';
 
-// const tableName = process.env.TABLE_NAME!;
+const tableName = process.env.TABLE_NAME!;
 
-exports.handler = async (event: any) => {
+type Event = {
+  arguments: {
+    name: string,
+    endpoint: string
+  }
+}
+
+exports.handler = async (event: Event) => {
   console.log(event)
+
+  const { name, endpoint } = event.arguments
+
+  return register(tableName, name, endpoint)
 }

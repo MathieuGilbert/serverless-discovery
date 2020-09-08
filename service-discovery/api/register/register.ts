@@ -5,6 +5,8 @@ import { Service } from '../types/Service'
 const documentClient = new DynamoDB.DocumentClient();
 
 export const register = async (tableName: string, name: string, endpoint: string): Promise<Service> => {
+  console.log('registering new service: ', name)
+
   try {
     const service = {
       name: name as DynamoDB.AttributeValue,

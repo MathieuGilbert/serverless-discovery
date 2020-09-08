@@ -39,7 +39,7 @@ const buildLambda = (
 
   const func = new lambda.Function(
     scope,
-    `${id}-function`,
+    `pixabayLambda`,
     functionProps
   );
 
@@ -117,7 +117,7 @@ export class PictureServiceStack extends cdk.Stack {
 
     const layer = buildPackageLayer(this, id)
 
-    const role = new iam.Role(this, `${id}-api-role`, {
+    const role = new iam.Role(this, `${id}-role`, {
 			assumedBy: new iam.ServicePrincipal("appsync.amazonaws.com"),
 		});
 

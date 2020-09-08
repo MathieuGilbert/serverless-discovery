@@ -6,6 +6,8 @@ import { Service } from '../types/Service'
 const documentClient = new DynamoDB.DocumentClient();
 
 export const publish = async (tableName: string, name: string, endpoint: string): Promise<Service> => {
+  console.log('publishing new version of service: ', name)
+
   try {
     const current = await get(tableName, name)
 

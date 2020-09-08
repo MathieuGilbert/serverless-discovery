@@ -1,0 +1,1 @@
+export { getPictureService } from './getPictureService'

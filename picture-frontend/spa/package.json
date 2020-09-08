@@ -10,14 +10,17 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "graphql": "^15.3.0",
+    "graphql-request": "^3.1.0",
     "react": "^16.13.1",
     "react-debounce-input": "^3.2.2",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.3",
     "typescript": "~3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",
+    "prebuild": "./buildConfig.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

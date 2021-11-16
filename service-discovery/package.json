@@ -31,7 +31,7 @@
     "@aws-cdk/custom-resources": "1.61.1",
     "@aws-cdk/aws-dynamodb": "1.61.1",
     "@aws-cdk/aws-iam": "1.61.1",
-    "aws-sdk": "^2.715.0",
+    "aws-sdk": "^2.814.0",
     "moment-timezone": "^0.5.31",
     "source-map-support": "^0.5.16"
   }
